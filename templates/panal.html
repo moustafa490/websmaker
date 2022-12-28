@@ -1,0 +1,82 @@
+<link rel="shortcut icon" href="{{url_for('static', filename='images/image.jpg')}}" type="image/x-icon">
+
+<style>
+    .styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Date-Time</th>
+        </tr>
+    </thead>
+    {%for ms in ms%}
+
+    <tbody>
+
+        <td>{{ms.id}}</td>
+        <td>{{ms.name}}</td>
+        <td>{{ms.subject}}</td>
+        <td>{{ms.email}}</td>
+        <td>{{ms.message}}</td>
+        <td>{{ms.date_created}}</td>
+        <!-- and so on... -->
+
+    </tbody>
+    {%endfor%}
+
+</table>
+<br>
+<a href="/"><button class="button" >Home</button></a>
+<a href="/logout"><button class="button" >Logout</button></a>
